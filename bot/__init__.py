@@ -139,7 +139,7 @@ if not ospath.isdir(path):
     mkdir(path)
 photo_dir = path + TGH_THUMB.split('/')[-1]
 urlretrieve(TGH_THUMB, photo_dir)
-Image.open(photo_dir).convert("RGB").save('Thumbnails/zoro.jpg', "JPEG")
+Image.open(photo_dir).convert("RGB").save('Thumbnails/weeb.jpg', "JPEG")
 osremove(photo_dir)
 
 AUTHORIZED_CHATS = environ.get('AUTHORIZED_CHATS', '')
