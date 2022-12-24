@@ -130,8 +130,17 @@ if len(DOWNLOAD_DIR) == 0:
 elif not DOWNLOAD_DIR.endswith("/"):
     DOWNLOAD_DIR = f'{DOWNLOAD_DIR}/'
 
-
 TGH_THUMB = environ.get('TGH_THUMB', '')
+if len(TGH_THUMB) == 0:
+    TGH_THUMB = 'https://te.legra.ph/file/3325f4053e8d68eab07b5.jpg'
+
+path = "Thumbnails/"
+if not ospath.isdir(path):
+    mkdir(path)
+photo_dir = path + TGH_THUMB.split('/')[-1]
+urlretrieve(TGH_THUMB, photo_dir)
+Image.open(photo_dir).convert("RGB").save('Thumbnails/zoro.jpg', "JPEG")
+osremove(photo_dir)
 
 AUTHORIZED_CHATS = environ.get('AUTHORIZED_CHATS', '')
 if len(AUTHORIZED_CHATS) != 0:
